@@ -22,26 +22,30 @@ So how it works. First download the **class.mysql.php** file and add it to your 
 **Now initializing the class:**
 
 **If you are using the config array:**
+
     $DB = new DB($config_mysql);
 
 **Else:**
+
     $DB = new DB;
 
 
 **Usage**
 
 Simple query:
+
     $DB->query("");
 
 Query first: 
+
     $DB->query_first("");
 
 Fetching:
 
     $names = $DB->query("SELECT * {TABLE_PREFIX}names");
-
+    
     while ($name = $DB->fetch_array($names )) {
-
+    
         echo $name['first] . ' ' . $name['last'];
     
     }
