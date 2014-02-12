@@ -52,7 +52,7 @@ Fetching:
 
 Also you can do query array:
 
-    $DB->("SELECT * FROM {TABLE_PREFIX}users WHERE id IN ({ARRAY})", array(1, 4, 5, 7););
+    $DB->("SELECT * FROM {TABLE_PREFIX}users WHERE id IN ({ARRAY})", array(1, 4, 5, 7));
 
 Array will be imploded with comas then.
 
