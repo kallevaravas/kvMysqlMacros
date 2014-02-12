@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Kvmysqlmacros : There are alot of mysql macro files out there, but mine is the simplest and neatest" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Kvmysqlmacros</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kallevaravas/kvMysqlMacros">View on GitHub</a>
+
+          <h1 id="project_title">Kvmysqlmacros</h1>
+          <h2 id="project_tagline">There are alot of mysql macro files out there, but mine is the simplest and neatest</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/kallevaravas/kvMysqlMacros/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/kallevaravas/kvMysqlMacros/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="kvmysqlmacros" class="anchor" href="#kvmysqlmacros"><span class="octicon octicon-link"></span></a>kvMysqlMacros</h1>
+
+<p>There are alot of mysql macro files out there, but mine is the simplest and neatest. You can hook up here a nice cache system as well.</p>
+
+<p>So how it works. First download the <strong>class.mysql.php</strong> file and add it to your <strong>includes/ folder</strong>. Now include it to your core-file of your system, or if you are not that far in your programming experience, then include it to the file, that needs mysql queries:</p>
+
+<pre><code>require ('class.mysql.php');
+</code></pre>
+
+<p><strong>Configuring</strong> it works two ways. Either you can have a config file somewhere, that is gonna get included before the class.mysql.php file and the config file, will have mysql config array like this in it:</p>
+
+<pre><code>$config_mysql = array(
+    // 'server' by default is localhost
+    'database' =&gt; 'database_1',
+    'user' =&gt; 'user_1',
+    'password' =&gt; 'password123',
+    'table_prefix' =&gt; 'kv_'
+);
+</code></pre>
+
+<p><strong>Or</strong> you simply don't use the config array and set everything up inside the class.mysql.php</p>
+
+<p><strong>Now initializing the class:</strong></p>
+
+<p><strong>If you are using the config array:</strong></p>
+
+<pre><code>$DB = new DB($config_mysql);
+</code></pre>
+
+<p><strong>Else:</strong></p>
+
+<pre><code>$DB = new DB;
+</code></pre>
+
+<p><strong>Usage</strong></p>
+
+<p>Simple query:</p>
+
+<pre><code>$DB-&gt;query("");
+</code></pre>
+
+<p>Query first: </p>
+
+<pre><code>$DB-&gt;query_first("");
+</code></pre>
+
+<p>Fetching:</p>
+
+<pre><code>$names = $DB-&gt;query("SELECT * {TABLE_PREFIX}names");
+
+while ($name = $DB-&gt;fetch_array($names )) {
+
+    echo $name['first] . ' ' . $name['last'];
+
+}
+</code></pre>
+
+<p>Also you can do query array:</p>
+
+<pre><code>$DB-&gt;("SELECT * FROM {TABLE_PREFIX}users WHERE id IN ({ARRAY})", array(1, 4, 5, 7));
+</code></pre>
+
+<p>Array will be imploded with comas then.</p>
+
+<p>By Kalle H. Väravas
+<strong>Copyleft - Use it freely!</strong></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Kvmysqlmacros maintained by <a href="https://github.com/kallevaravas">kallevaravas</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
